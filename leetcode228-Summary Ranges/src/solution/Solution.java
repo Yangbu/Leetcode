@@ -1,17 +1,24 @@
 package solution;
 
-import java.util.Stack;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Solution {
-	public static void main(String[] args) {
-		Stack<Integer> stack1 = new Stack<>();
-		stack1.push(1);
-		stack1.push(2);
-		stack1.push(3);
-		Stack<Integer> stack2 = stack1;
-		while(!stack2.isEmpty()){
-			System.out.println(stack2.pop());
-		}
-	}
-
+    public List<String> summaryRanges(int[] nums) {
+        List<String> result = new ArrayList<>();
+        for(int i=0; i<nums.length; i++){
+            int a = nums[i];
+            while((i+1<nums.length) && (nums[i+1]-nums[i]==1)){
+                i++;
+            }
+            if(a == nums[i]){
+                result.add(a + " ");
+            }
+            else{
+                result.add(a + "->"+nums[i]);
+            }
+                
+        }
+        return result;
+    }
 }
