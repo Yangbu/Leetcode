@@ -1,0 +1,15 @@
+package solution;
+
+public class Solution {
+    public void connect(TreeLinkNode root) {
+        while(root != null){
+            TreeLinkNode cur = root;
+         while(cur != null){
+            if(cur.left != null) cur.left.next = cur.right;
+            if(cur.right != null && cur.next != null) cur.right.next = cur.next.left;
+            cur = cur.next;
+        }
+        root = root.left;
+        }
+    }
+}
